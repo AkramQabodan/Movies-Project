@@ -1,3 +1,4 @@
+import { RouterGuard } from './guards/router.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoverComponent } from './components/cover/cover.component';
@@ -7,16 +8,31 @@ import { TrendingMoviesComponent } from './components/home/trending-movies/trend
 import { TrendingTvComponent } from './components/home/trending-tv/trending-tv.component';
 
 const routes: Routes = [
-  {path:'',component:CoverComponent}, 
-  {path:'home',component: HomeComponent},
-  {path:'trendMovies',component: TrendingMoviesComponent},
-  {path:'trendTv',component:TrendingTvComponent},
-  {path:'trendPeople',component: PopularPeopleComponent},
-  {path:'auth',loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)}
+  { path: '', component: CoverComponent },
+  { path: 'home', component: HomeComponent, canActivate: [RouterGuard] },
+  {
+    path: 'trendMovies',
+    component: TrendingMoviesComponent,
+    canActivate: [RouterGuard],
+  },
+  {
+    path: 'trendTv',
+    component: TrendingTvComponent,
+    canActivate: [RouterGuard],
+  },
+  {
+    path: 'trendPeople',
+    component: PopularPeopleComponent,
+    canActivate: [RouterGuard],
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
