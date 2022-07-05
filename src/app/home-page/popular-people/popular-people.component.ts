@@ -14,7 +14,7 @@ export class PopularPeopleComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this._ApiRequestService.getTrendingPeople()
-    this.trendingpeople = this._ApiRequestService.data.trendingPeople
+    
   }
 
 }

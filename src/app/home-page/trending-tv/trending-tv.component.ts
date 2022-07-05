@@ -15,7 +15,7 @@ export class TrendingTvComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this._ApiRequestService.getTrendingPeople()
-    this.trendingtv = this._ApiRequestService.data.trendingPeople
+    
 
     
   }
