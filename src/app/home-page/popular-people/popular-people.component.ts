@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { popular } from 'app/interfaces/popularinteface';
-import { ApiRequestService } from 'app/services/api-request.service';
 
 @Component({
   selector: 'app-popular-people',
@@ -8,13 +6,10 @@ import { ApiRequestService } from 'app/services/api-request.service';
   styleUrls: ['./popular-people.component.scss']
 })
 export class PopularPeopleComponent implements OnInit {
-  trendingpeople:Array<popular>=[]
-  
-  constructor( private _ApiRequestService:ApiRequestService
-  ) { }
+
+  constructor() { }
+
   ngOnInit(): void {
-    this._ApiRequestService.getTrendingPeople()
-    this.trendingpeople = this._ApiRequestService.data.trendingPeople
   }
 
 }

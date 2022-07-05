@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { popular } from 'app/interfaces/popularinteface';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-people-card',
@@ -7,17 +6,10 @@ import { popular } from 'app/interfaces/popularinteface';
   styleUrls: ['./people-card.component.scss']
 })
 export class PeopleCardComponent implements OnInit {
-@Input() input:any
-// input!:popular;
 
-
-  constructor() { 
-
-  
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.input);
   }
 
 }
