@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-
+import { HttpClientModule } from '@angular/common/http';
 // Main components:
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -40,6 +40,7 @@ import { ButtonModule } from 'primeng/button';
     InputTextModule,
     InputNumberModule,
     ButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
