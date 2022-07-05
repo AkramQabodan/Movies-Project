@@ -23,7 +23,7 @@ export class RouterGuard implements CanActivate {
     if (this._authService.checkLoggingIn()) {
       return true;
     } else {
-      alert('You need to login first ..');
+      alert('You need to login first !');
       this._router.navigate(['auth/signin']);
       return false;
     }
