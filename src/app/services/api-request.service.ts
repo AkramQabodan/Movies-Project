@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { popular } from 'app/interfaces/popularinteface';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiRequestService {
   key: string = '6e17bd4768b3f5848c1d3b05fd8cadd9';
-  data: { trendingPeople: {}[]; trendingMovies: {}[]; trendingTV: {}[] } = {
+  data: { trendingPeople: Array<popular>; trendingMovies: {}[]; trendingTV: {}[] } = {
     trendingPeople: [],
     trendingMovies: [],
     trendingTV: [],
