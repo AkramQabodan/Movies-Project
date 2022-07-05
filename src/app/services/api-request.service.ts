@@ -17,9 +17,10 @@ export class ApiRequestService {
       .subscribe(
         (data) => {
           this.trending = data;
+          console.log(data);
         },
         (error) => {
-          alert(error.message);
+          alert('failed to load data! please try again later');
         }
       );
   }
