@@ -1,21 +1,19 @@
 <div class="navbar_master">
-    <div>
-        <h1>OurLogo</h1>
-
-    </div>
-    <ul>
-        <li routerLinkActive="active">
-          <a routerLink="trendMovies">Movies</a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="trendTv">Tv</a>
-        </li>
-        <li routerLinkActive="active">
-            <a routerLink="trendPeople">People</a>
-          </li>
-          <li class="signOut">
-            <a>Sign Out</a>
-          </li>
-      </ul>
-
+  <div>
+    <h1>OurLogo</h1>
+  </div>
+  <ul>
+    <li routerLinkActive="active">
+      <a routerLink="trendMovies">Movies</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="trendTv">Tv</a>
+    </li>
+    <li routerLinkActive="active">
+      <a routerLink="trendPeople">People</a>
+    </li>
+    <li class="signOut">
+      <a type="button" (click)="LogOut()">Log Out</a>
+    </li>
+  </ul>
 </div>
