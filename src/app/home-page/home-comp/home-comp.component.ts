@@ -7,22 +7,7 @@ import { ApiRequestService } from 'app/services/api-request.service';
   styleUrls: ['./home-comp.component.scss'],
 })
 export class HomeCompComponent implements OnInit {
-  constructor(private _ApiRequestService: ApiRequestService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this._ApiRequestService.getTrendingMovies().subscribe((data) => {
-      console.log('movies', data);
-    });
-    this._ApiRequestService.getTrendingPeople().subscribe((data) => {
-      console.log('people', data);
-    });
-    this._ApiRequestService.getTrendingTV().subscribe((data) => {
-      console.log('tv', data);
-    });
-    setTimeout(() => {
-      console.log(this._ApiRequestService.data.trendingMovies);
-      // console.log(this._ApiRequestService.data.trendingPeople);
-      // console.log(this._ApiRequestService.data.trendingTV);
-    }, 5000);
-  }
+  ngOnInit(): void {}
 }
