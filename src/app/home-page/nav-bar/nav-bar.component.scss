@@ -1,0 +1,40 @@
+.navbar_master{
+    width: 80%;
+    height: 60px;
+    background-color: transparent;
+    line-height: 30px;
+    padding:0 20px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: auto;
+    ul{
+        display: flex;
+
+        li{
+            margin: 0 10px;
+            list-style: none;
+            a{
+                text-decoration: none;
+                color: black;
+                padding: 10px;
+                border-radius: 20px;
+                font-size: 20px;
+            }
+            a:hover{
+                color: white;
+                background-color: orange;
+            }
+        }
+    }
+}
+.active a{
+    background-color: orange;
+}
+.signOut a{
+    font-size: 16px !important;
+    border: 1px solid black;
+}
+.signOut a:hover{
+    background-color: black !important;
+}
