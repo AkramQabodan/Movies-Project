@@ -14,7 +14,12 @@ export class TrendingTvComponent implements OnInit {
   constructor( private _ApiRequestService:ApiRequestService
   ) { }
   ngOnInit(): void {
-    this._ApiRequestService.getTrendingPeople()
+    this._ApiRequestService.getTrendingTV().subscribe((res)=>{
+      this.trendingtv=res;
+    },(error:any)=>{
+      console.log("error")}
+
+    )
     
 
     

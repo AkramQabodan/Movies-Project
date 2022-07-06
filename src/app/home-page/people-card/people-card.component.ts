@@ -8,12 +8,8 @@ import { popular } from 'app/interfaces/popularinteface';
 })
 export class PeopleCardComponent implements OnInit {
 @Input() input:any
-// input!:popular;
-
 
   constructor() { 
-
-  
   }
 
   ngOnInit(): void {

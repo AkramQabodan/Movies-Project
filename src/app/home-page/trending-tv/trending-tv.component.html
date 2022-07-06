@@ -1,10 +1,3 @@
-<!-- <div class="row">
-    <div
-      class="col-md-3"
-      *ngFor="let product of productlist"
-      [routerLink]="'/details/' + product.id" 
-
-      <app-product-card [product]="product"> </app-product-card> 
-    </div>
-    
-  </div> -->
+<div class="row container mx-auto justify-content-between">
+  <app-tv-media-card  class="col-md-2 border m-2" *ngFor="let oneTv of trendingtv"  [input]="oneTv" > </app-tv-media-card> 
+</div>

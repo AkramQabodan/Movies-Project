@@ -12,6 +12,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { PeopleCardComponent } from './people-card/people-card.component';
+import { TvMediaCardComponent } from './tv-media-card/tv-media-card.component';
+
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { PeopleCardComponent } from './people-card/people-card.component';
     FavouritesComponent,
     MediaCardComponent,
     PeopleCardComponent,
+    TvMediaCardComponent,
     
   ],
   imports: [
