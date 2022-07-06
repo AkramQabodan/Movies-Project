@@ -9,7 +9,6 @@ import { CoverComponent } from './components/cover/cover.component';
 import { StoreModule } from '@ngrx/store';
 import { favReducer } from './store/fav/fav.reducer';
 
-
 // style Modules (PrimeModules):
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
