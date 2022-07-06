@@ -35,7 +35,7 @@ export class ApiRequestService {
   }
   getTrendingMovies(lang: string) {
     return this.http
-      .get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${this.key}`)
+      .get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${this.key}`)
       .pipe(
         map((data: any) => data.results),
         map((item) => {
