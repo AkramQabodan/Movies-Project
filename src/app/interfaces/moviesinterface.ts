@@ -1,9 +1,11 @@
 export interface movies {
   adult: boolean;
   id: number;
-  gender: number;
-  name: string;
-  original_name: string;
+  title: string;
+  original_title: string;
   popularity: number;
+  overview: string;
   profile_path: string;
+  poster_path: string;
+  vote_average: number;
 }
