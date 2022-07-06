@@ -23,7 +23,7 @@ export class HeadersService implements HttpInterceptor {
 
     request = request.clone({
       setHeaders: {
-        'Accept-language': 'en-US, en;q=0.5, ar;q=0.8, ar-SA',
+        'Accept-language': 'en-US, en;q=0.5, ar;q=0.6, ar-SA',
       },
     });
 
