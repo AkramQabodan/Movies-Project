@@ -1,18 +1,19 @@
+import { movies } from 'app/interfaces/moviesinterface';
 import { createReducer, on } from '@ngrx/store';
-import { increment, decrement, reset } from './fav.actions';
+import { addWish, removeWish, getWishes } from './fav.actions';
 
-export const initialState = 0;
+export const initialState: Array<movies> = [];
 
 export const favReducer = createReducer(
   initialState,
-  on(increment, (state) => state + 1),
-  on(decrement, (state) => {
-    if (state <= 0) {
-      return 0
-    } else {
-      return state - 1
-    }
+  on(addWish, (state, { Wish }) => {
+    state = [...state, Wish];
+    return state;
   }),
-
-  on(reset, (state) => 0)
+  on(removeWish, (state, { index }) => {
+    state = [...state];
+    state.splice(index, 1);
+    return state;
+  }),
+  on(getWishes, (state) => state)
 );

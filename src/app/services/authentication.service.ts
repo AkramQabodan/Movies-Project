@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class AuthenticationService {
   constructor(private _router: Router) {}
-
   loggedIn: boolean = false;
 
   checkLoggingIn() {

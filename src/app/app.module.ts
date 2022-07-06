@@ -1,8 +1,11 @@
+import { AuthenticationService } from 'app/services/authentication.service';
+import { RouterGuard } from './guards/router.guard';
 // Main Modules:
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeadersService } from './interceptors/features/headers.service';
 // Main components:
 import { AppComponent } from './app.component';
 import { CoverComponent } from './components/cover/cover.component';
@@ -16,11 +19,7 @@ import { ButtonModule } from 'primeng/button';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CoverComponent,
-    NotFoundComponent
-  ],
+  declarations: [AppComponent, CoverComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +29,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ButtonModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    RouterGuard,
+    AuthenticationService,
+    { provide: HTTP_INTERCEPTORS, useClass: HeadersService, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
