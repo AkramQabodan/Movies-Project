@@ -17,6 +17,10 @@ export class ApiRequestService {
 
   constructor(private http: HttpClient) {}
 
+  modifyQuery(string: string) {
+    return string.trim().replace(' ', '-');
+  }
+
   getTrendingPeople() {
     return this.http
       .get(
@@ -61,6 +65,27 @@ export class ApiRequestService {
         `https://api.themoviedb.org/3/tv/popular?api_key=${this.key}&language=${
           this.isEnglish ? this.english : this.arabic
         }&page=1`
+      )
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((tv: any) => {
+            return {
+              ...tv,
+              poster_path: `${this.baseImgURL}${this.imgSize}${tv.poster_path}`,
+            };
+          });
+        })
+      );
+  }
+  getSearch(query: string) {
+    return this.http
+      .get(
+        `https://api.themoviedb.org/3/search/multi?api_key=${
+          this.key
+        }&language=${
+          this.isEnglish ? this.english : this.arabic
+        }&page=1&include_adult=false&query=${this.modifyQuery(query)}`
       )
       .pipe(
         map((data: any) => data.results),
