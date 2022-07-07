@@ -6,22 +6,23 @@ import { addWish, removeWish } from 'app/store/fav/fav.actions';
 @Component({
   selector: 'app-media-card',
   templateUrl: './media-card.component.html',
-  styleUrls: ['./media-card.component.scss']
+  styleUrls: ['./media-card.component.scss'],
 })
 export class MediaCardComponent implements OnInit {
-  @Input() input:any
-  constructor(private _store: Store<{ fav:movies[] }> ) { }
+  @Input() input: movies = {} as movies;
+  check: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(private _store: Store<{ fav: movies[] }>) {}
+
   //favourie
-  check: boolean = false
-  addToFav(wish: movies ,id:number ){
-    if (this.check == false)  {
+  addToFav(wish: movies, id: number) {
+    if (this.check == false) {
       this._store.dispatch(addWish({ Wish: wish }));
-      this.check = true
+      this.check = true;
     } else {
-      this.check = false
-      this._store.dispatch(removeWish({ Id:id }))
+      this.check = false;
+      this._store.dispatch(removeWish({ Id: id }));
     }
   }
+  ngOnInit(): void {}
 }

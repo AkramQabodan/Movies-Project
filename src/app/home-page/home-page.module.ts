@@ -13,8 +13,9 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { PeopleCardComponent } from './people-card/people-card.component';
 import { TvMediaCardComponent } from './tv-media-card/tv-media-card.component';
-
-
+import { FavCardComponent } from './fav-card/fav-card.component';
+import { LikeBarComponent } from './like-bar/like-bar.component';
+import { LikesSidebarComponent } from './likes-sidebar/likes-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,10 @@ import { TvMediaCardComponent } from './tv-media-card/tv-media-card.component';
     MediaCardComponent,
     PeopleCardComponent,
     TvMediaCardComponent,
-    
+    FavCardComponent,
+    LikeBarComponent,
+    LikesSidebarComponent,
   ],
-  imports: [
-    CommonModule,
-    HomePageRoutingModule,
-  ]
+  imports: [CommonModule, HomePageRoutingModule],
 })
-export class HomePageModule { }
+export class HomePageModule {}

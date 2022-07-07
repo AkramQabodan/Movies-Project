@@ -1,22 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { popular } from 'app/interfaces/popularinteface';
 
 @Component({
   selector: 'app-people-card',
   templateUrl: './people-card.component.html',
-  styleUrls: ['./people-card.component.scss']
+  styleUrls: ['./people-card.component.scss'],
 })
 export class PeopleCardComponent implements OnInit {
-<<<<<<< HEAD
+  @Input() input: any;
 
-  constructor() { }
-=======
-@Input() input:any
-
-  constructor() { 
-  }
->>>>>>> Development
+  constructor() {}
 
   ngOnInit(): void {
+    console.log(this.input);
   }
-
 }
