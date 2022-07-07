@@ -3,7 +3,16 @@
         <h1>OurLogo</h1>
     </div>
     <ul>
-        <li routerLinkActive="active">
+      <li>
+        <a routerLink="favourites" class="fav"><i class="fa-solid fa-star text-warning"></i></a>
+      </li>
+      <li>
+        <select name="lang">
+          <option value="ar">Ar</option>
+          <option value="en">En</option>
+        </select>
+      </li>
+        <!-- <li routerLinkActive="active">
           <a routerLink="trendMovies">Movies</a>
         </li>
         <li routerLinkActive="active">
@@ -11,7 +20,7 @@
         </li>
         <li routerLinkActive="active">
             <a routerLink="trendPeople">People</a>
-          </li>
+          </li> -->
           <li class="signOut">
             <a (click)="LogOut()" type="button">Log Out</a>
           </li>
