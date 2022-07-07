@@ -15,7 +15,7 @@
 </div>
   <button class="btn btn-sm btn-danger col-1 my-auto d-block ms-5" style="height: 40px; width:40px" (click)="removeFav(item.id)" >x</button>
 </div>
-  <button class="btn btn-danger mx-auto d-block col-5" (click)="Reset()">Delele All Favourites</button>
+  <button class="btn btn-danger mx-auto d-block col-5" (click)="Reset(favoriteList)">Delele All Favourites</button>
 </div>
 <div *ngIf="favoriteList.length==0" class="w-50 mx-auto mt-5">
   <img src="../../../assets/images/noFav.jpg" class="w-50 d-block mx-auto" alt="">
