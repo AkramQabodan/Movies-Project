@@ -24,6 +24,7 @@ export class NavBarComponent implements OnInit {
   changeAr(){
     this._service.setLanguageArabic();
     this.reNavigate();
+    console.log("hxfdggdgd")
 
   }
   changeEn(){

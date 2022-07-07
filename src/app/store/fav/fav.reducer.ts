@@ -4,6 +4,7 @@ import { addWish, removeWish, getWishes, deleteWishes } from './fav.actions';
 
 export const initialState: Array<movies> = [];
 
+
 export const favReducer = createReducer(
 
   initialState,

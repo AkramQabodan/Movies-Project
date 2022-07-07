@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { popular } from 'app/interfaces/popularinteface';
 
 @Component({
   selector: 'app-people-card',
