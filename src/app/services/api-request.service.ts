@@ -17,13 +17,10 @@ export class ApiRequestService {
 
   constructor(private http: HttpClient) {}
 
-<<<<<<< HEAD
-=======
   modifyQuery(string: string) {
     return string.trim().replace(' ', '-');
   }
 
->>>>>>> Development
   getTrendingPeople() {
     return this.http
       .get(
@@ -81,6 +78,7 @@ export class ApiRequestService {
         })
       );
   }
+
   getSearch(query: string) {
     return this.http
       .get(
