@@ -1,6 +1,6 @@
-import { HttpClient, HttpRequest, HttpEvent } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,15 +11,25 @@ export class ApiRequestService {
   imgSize: string = '/original';
 
   //url params for change languages
-  arabic: string = 'ar';
-  english: string = 'en-US';
+  private isEnglish: boolean = true;
+  private arabic: string = 'ar';
+  private english: string = 'en-US';
 
   constructor(private http: HttpClient) {}
 
+<<<<<<< HEAD
+=======
+  modifyQuery(string: string) {
+    return string.trim().replace(' ', '-');
+  }
+
+>>>>>>> Development
   getTrendingPeople() {
     return this.http
       .get(
-        `https://api.themoviedb.org/3/trending/person/day?api_key=${this.key}`
+        `https://api.themoviedb.org/3/person/popular?api_key=${
+          this.key
+        }&language=${this.isEnglish ? this.english : this.arabic}&page=1`
       )
       .pipe(
         map((data: any) => data.results),
@@ -35,7 +45,11 @@ export class ApiRequestService {
   }
   getTrendingMovies() {
     return this.http
-      .get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${this.key}`)
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${
+          this.key
+        }&language=${this.isEnglish ? this.english : this.arabic}&page=1`
+      )
       .pipe(
         map((data: any) => data.results),
         map((item) => {
@@ -50,7 +64,11 @@ export class ApiRequestService {
   }
   getTrendingTV() {
     return this.http
-      .get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${this.key}`)
+      .get(
+        `https://api.themoviedb.org/3/tv/popular?api_key=${this.key}&language=${
+          this.isEnglish ? this.english : this.arabic
+        }&page=1`
+      )
       .pipe(
         map((data: any) => data.results),
         map((item) => {
@@ -62,5 +80,32 @@ export class ApiRequestService {
           });
         })
       );
+  }
+  getSearch(query: string) {
+    return this.http
+      .get(
+        `https://api.themoviedb.org/3/search/multi?api_key=${
+          this.key
+        }&language=${
+          this.isEnglish ? this.english : this.arabic
+        }&page=1&include_adult=false&query=${this.modifyQuery(query)}`
+      )
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((tv: any) => {
+            return {
+              ...tv,
+              poster_path: `${this.baseImgURL}${this.imgSize}${tv.poster_path}`,
+            };
+          });
+        })
+      );
+  }
+  setLanguageArabic(): void {
+    this.isEnglish = false;
+  }
+  setLanguageEnglish(): void {
+    this.isEnglish = true;
   }
 }
