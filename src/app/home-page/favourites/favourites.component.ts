@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { movies } from 'app/interfaces/moviesinterface';
-<<<<<<< HEAD
-=======
 import { removeWish, deleteWishes } from 'app/store/fav/fav.actions';
->>>>>>> Development
 
 @Component({
   selector: 'app-favourites',
@@ -19,27 +16,23 @@ export class FavouritesComponent implements OnInit {
   ngOnInit(): void {
     this._store.select('fav').subscribe((res) => {
       this.favoriteList = res;
-<<<<<<< HEAD
     });
-=======
-    })
-    console.log(this.favoriteList)
+    console.log(this.favoriteList);
   }
-  removeFav(Id:number){
-    this._store.dispatch(removeWish({Id}))
+  removeFav(Id: number) {
+    this._store.dispatch(removeWish({ Id }));
   }
-  liked:boolean=false
-  likedFn(fav : HTMLElement){
-    if(this.liked==false){
-      this.liked=true
-      fav.className='text-danger'
-    }else{
-      this.liked=false
-      fav.className='text-muted'
+  liked: boolean = false;
+  likedFn(fav: HTMLElement) {
+    if (this.liked == false) {
+      this.liked = true;
+      fav.className = 'text-danger';
+    } else {
+      this.liked = false;
+      fav.className = 'text-muted';
     }
   }
-  Reset(list:movies[]){
-    this._store.dispatch(deleteWishes({list}))
->>>>>>> Development
+  Reset(list: movies[]) {
+    this._store.dispatch(deleteWishes({ list }));
   }
 }

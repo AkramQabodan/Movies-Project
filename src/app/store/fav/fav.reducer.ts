@@ -1,10 +1,6 @@
-import { addWish, removeWish, getWishes } from './fav.actions';
 import { movies } from 'app/interfaces/moviesinterface';
 import { createReducer, on } from '@ngrx/store';
-<<<<<<< HEAD
-=======
-import { addWish, removeWish, getWishes, deleteWishes } from './fav.actions';
->>>>>>> Development
+import { addWish, removeWish, getWishes } from './fav.actions';
 
 export const initialState: Array<movies> = [];
 
@@ -20,20 +16,9 @@ export const favReducer = createReducer(
     state = state.filter((movie) => {
       return movie.id !== Id;
     });
-<<<<<<< HEAD
+    // state.splice(index, 1);
     console.log(state);
-=======
->>>>>>> Development
     return state;
   }),
-  on(getWishes, (state) => state),
-  on(deleteWishes, (state)=>{
-    state=[];
-    console.log(state)
-     return state})
+  on(getWishes, (state) => state)
 );
-<<<<<<< HEAD
-=======
-
-
->>>>>>> Development
