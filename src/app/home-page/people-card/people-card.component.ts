@@ -12,7 +12,7 @@ export class PeopleCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.input);
+    // console.log(this.input);
   }
 
 }
