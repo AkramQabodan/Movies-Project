@@ -1,13 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+
+=======
 import { popular } from 'app/interfaces/popularinteface';
 import { ApiRequestService } from 'app/services/api-request.service';
 // import { ActivatedRoute } from '@angular/router';
+>>>>>>> Development
 @Component({
   selector: 'app-popular-people',
   templateUrl: './popular-people.component.html',
   styleUrls: ['./popular-people.component.scss'],
 })
 export class PopularPeopleComponent implements OnInit {
+<<<<<<< HEAD
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+=======
   trendingpeople: Array<popular> = [];
 
   people:Array<popular> =[]
@@ -27,6 +38,7 @@ export class PopularPeopleComponent implements OnInit {
           this.trendingpeople.push(product);
         }
       },
+>>>>>>> Development
 
       (err: any) => {
         console.log('error');
