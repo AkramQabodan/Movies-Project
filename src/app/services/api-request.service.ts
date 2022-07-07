@@ -16,7 +16,7 @@ export class ApiRequestService {
 
   constructor(private http: HttpClient) {}
 
-  getTrendingPeople(lang: string) {
+  getTrendingPeople() {
     return this.http
       .get(
         `https://api.themoviedb.org/3/trending/person/day?api_key=${this.key}`
@@ -33,7 +33,7 @@ export class ApiRequestService {
         })
       );
   }
-  getTrendingMovies(lang: string) {
+  getTrendingMovies() {
     return this.http
       .get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${this.key}`)
       .pipe(
@@ -48,7 +48,7 @@ export class ApiRequestService {
         })
       );
   }
-  getTrendingTV(lang: string) {
+  getTrendingTV() {
     return this.http
       .get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${this.key}`)
       .pipe(

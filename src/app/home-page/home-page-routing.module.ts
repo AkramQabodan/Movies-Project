@@ -12,7 +12,7 @@ children:[
   {path:'trendMovies',component:TrendingMoviesComponent},
   {path:'trendTv',component:TrendingTvComponent},
   {path:'trendPeople',component:PopularPeopleComponent},
-  // {path:'search/:searchterm',component:PopularPeopleComponent }
+  {path:'trendPeople/:searchterm',component:PopularPeopleComponent }
 ]},
 ];
 @NgModule({
