@@ -8,19 +8,10 @@
       </li>
       <li>
         <select name="lang">
-          <option value="ar">Ar</option>
-          <option value="en">En</option>
+          <option value="en" (click)="changeEn()" [selected]="English">En</option>
+          <option value="ar" (click)="changeAr()" [selected]="!English">Ar</option>
         </select>
       </li>
-        <!-- <li routerLinkActive="active">
-          <a routerLink="trendMovies">Movies</a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="trendTv">Tv</a>
-        </li>
-        <li routerLinkActive="active">
-            <a routerLink="trendPeople">People</a>
-          </li> -->
           <li class="signOut">
             <a (click)="LogOut()" type="button">Log Out</a>
           </li>
