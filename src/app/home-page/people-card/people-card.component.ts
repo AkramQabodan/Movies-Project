@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { popular } from 'app/interfaces/popularinteface';
 
 @Component({
   selector: 'app-people-card',
@@ -12,6 +11,6 @@ export class PeopleCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.input);
+    // console.log(this.input);
   }
 }

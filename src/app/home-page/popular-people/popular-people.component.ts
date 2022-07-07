@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { popular } from 'app/interfaces/popularinteface';
 import { ApiRequestService } from 'app/services/api-request.service';
-// import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-popular-people',
   templateUrl: './popular-people.component.html',
@@ -10,21 +11,18 @@ import { ApiRequestService } from 'app/services/api-request.service';
 export class PopularPeopleComponent implements OnInit {
   trendingpeople: Array<popular> = [];
 
-  people:Array<popular> =[]
+  // people:Array<popular> =[]
   constructor(
     private _ApiRequestService: ApiRequestService,
-    // private _route: ActivatedRoute
+    private _route: ActivatedRoute
   ) {}
   ngOnInit(): void {
-    // this._route.params.subscribe(params =>{
-    //   if (params.searchterm) 
-    //   this.people = this.trendingpeople.getAll()
-    // })
+ 
     this._ApiRequestService.getTrendingPeople().subscribe(
       (res) => {
         console.log('res');
-        for (const product of res) {
-          this.trendingpeople.push(product);
+        for (const person of res) {
+          this.trendingpeople.push(person);
         }
       },
 
@@ -32,5 +30,19 @@ export class PopularPeopleComponent implements OnInit {
         console.log('error');
       }
     );
+    this._route.params.subscribe(params =>{
+      if (params['searchterm']) 
+        this.trendingpeople.filter(person=> person.name.toLowerCase().includes(params['searchterm'].toLowerCase()))
+      else
+      this.trendingpeople
+      // console.log ( this.trendingpeople.filter(person=> person.name.toLowerCase()))
+      // console.log(params['searchterm']);
+      
+    })
+    // console.log(this.people);
+   console.log (this.trendingpeople)
+ 
+    
+    
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { movies } from 'app/interfaces/moviesinterface';
+import { removeWish, deleteWishes } from 'app/store/fav/fav.actions';
 
 @Component({
   selector: 'app-favourites',

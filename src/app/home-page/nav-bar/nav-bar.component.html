@@ -4,17 +4,23 @@
   </div>
   <ul>
     <li>
-      <a routerLink="/home/favourites" class="fav"
+      <a routerLink="favourites" class="fav"
         ><i class="fa-solid fa-star text-warning"></i
       ></a>
     </li>
     <li>
       <select name="lang">
-        <option value="ar">Ar</option>
-        <option value="en">En</option>
+        <option value="en" (click)="changeEn()" [selected]="English">En</option>
+        <option value="ar" (click)="changeAr()" [selected]="!English">
+          Ar
+        </option>
       </select>
     </li>
-
+    <li class="signOut">
+      <a (click)="LogOut()" type="button">Log Out</a>
+    </li>
+  </ul>
+  <ul>
     <li>
       <a
         class="btn btn-primary"
