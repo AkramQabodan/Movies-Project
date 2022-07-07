@@ -1,27 +1,23 @@
+import { addLike, removeLike, getLikes } from './../likes/likes.actions';
 import { movies } from 'app/interfaces/moviesinterface';
 import { createReducer, on } from '@ngrx/store';
-import { addWish, removeWish, getWishes, deleteWishes } from './fav.actions';
 
 export const initialState: Array<movies> = [];
 
-export const favReducer = createReducer(
+export const likeReducer = createReducer(
   initialState,
-  on(addWish, (state, { Wish }) => {
-    state = [...state, Wish];
+  on(addLike, (state, { Like }) => {
+    state = [...state, Like];
     console.log(state);
     return state;
   }),
-  on(removeWish, (state, { Id }) => {
+  on(removeLike, (state, { Id }) => {
     state = [...state];
     state = state.filter((movie) => {
       return movie.id !== Id;
     });
-    return state;
-  }),
-  on(getWishes, (state) => state),
-  on(deleteWishes, (state) => {
-    state = [];
     console.log(state);
     return state;
-  })
+  }),
+  on(getLikes, (state) => state)
 );

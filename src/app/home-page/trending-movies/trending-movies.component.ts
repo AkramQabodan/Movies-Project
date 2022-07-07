@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { movies } from 'app/interfaces/moviesinterface';
-import { ApiRequestService } from 'app/services/api-request.service';
 
 @Component({
   selector: 'app-trending-movies',
@@ -9,6 +7,11 @@ import { ApiRequestService } from 'app/services/api-request.service';
 })
 export class TrendingMoviesComponent implements OnInit {
 
+<<<<<<< HEAD
+  constructor() { }
+
+  ngOnInit(): void {
+=======
   trendingmovies:Array<movies>=[]
   
   constructor( private _ApiRequestService:ApiRequestService) { }
@@ -18,5 +21,7 @@ export class TrendingMoviesComponent implements OnInit {
       },(error:any)=>{
         console.log("error")  
     })
+>>>>>>> Development
   }
+
 }

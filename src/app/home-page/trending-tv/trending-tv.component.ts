@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { tv } from 'app/interfaces/tvinterface';
-import { ApiRequestService } from 'app/services/api-request.service';
 
 @Component({
   selector: 'app-trending-tv',
@@ -9,6 +7,9 @@ import { ApiRequestService } from 'app/services/api-request.service';
 })
 export class TrendingTvComponent implements OnInit {
 
+<<<<<<< HEAD
+  constructor() { }
+=======
   trendingtv:Array<tv>=[]
   
   constructor( private _ApiRequestService:ApiRequestService
@@ -18,6 +19,16 @@ export class TrendingTvComponent implements OnInit {
       this.trendingtv=res;
     },(error:any)=>{
       console.log("error")}
+<<<<<<< HEAD
+
+    )
+    
+>>>>>>> Development
+
+  ngOnInit(): void {
+=======
     )  
+>>>>>>> Development
   }
+
 }

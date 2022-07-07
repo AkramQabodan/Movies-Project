@@ -10,14 +10,14 @@ import { ApiRequestService } from 'app/services/api-request.service';
 export class PopularPeopleComponent implements OnInit {
   trendingpeople: Array<popular> = [];
 
-  people:Array<popular> =[]
+  people: Array<popular> = [];
   constructor(
-    private _ApiRequestService: ApiRequestService,
-    // private _route: ActivatedRoute
-  ) {}
+    private _ApiRequestService: ApiRequestService
+  ) // private _route: ActivatedRoute
+  {}
   ngOnInit(): void {
     // this._route.params.subscribe(params =>{
-    //   if (params.searchterm) 
+    //   if (params.searchterm)
     //   this.people = this.trendingpeople.getAll()
     // })
     this._ApiRequestService.getTrendingPeople().subscribe(
