@@ -7,10 +7,12 @@
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    margin: auto;
+    margin: 20px auto 0 auto;
+    h1{
+        margin-top: -10px;
+    }
     ul{
         display: flex;
-
         li{
             margin: 0 10px;
             list-style: none;

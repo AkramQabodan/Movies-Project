@@ -1,3 +1,4 @@
+import { AuthenticationService } from './services/authentication.service';
 import { RouterGuard } from './guards/router.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';

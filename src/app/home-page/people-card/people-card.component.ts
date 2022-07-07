@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./people-card.component.scss']
 })
 export class PeopleCardComponent implements OnInit {
+<<<<<<< HEAD
 
   constructor() { }
+=======
+@Input() input:any
+
+  constructor() { 
+  }
+>>>>>>> Development
 
   ngOnInit(): void {
   }

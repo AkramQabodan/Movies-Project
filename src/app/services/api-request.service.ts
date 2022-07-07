@@ -7,55 +7,110 @@ import { map } from 'rxjs';
 })
 export class ApiRequestService {
   key: string = '6e17bd4768b3f5848c1d3b05fd8cadd9';
+<<<<<<< HEAD
   data: { trendingPeople: {}[]; trendingMovies: {}[]; trendingTV: {}[] } = {
     trendingPeople: [],
     trendingMovies: [],
     trendingTV: [],
   };
+=======
+  baseImgURL: string = 'https://image.tmdb.org/t/p';
+  imgSize: string = '/original';
+
+  //url params for change languages
+  private isEnglish: boolean = true;
+  private arabic: string = 'ar';
+  private english: string = 'en-US';
+
+>>>>>>> Development
   constructor(private http: HttpClient) {}
 
+  modifyQuery(string: string) {
+    return string.trim().replace(' ', '-');
+  }
+
   getTrendingPeople() {
-    this.http
+    return this.http
       .get(
-        `https://api.themoviedb.org/3/trending/person/day?api_key=${this.key}`
+        `https://api.themoviedb.org/3/person/popular?api_key=${
+          this.key
+        }&language=${this.isEnglish ? this.english : this.arabic}&page=1`
       )
-      .pipe(map((data: any) => data.results))
-      .subscribe(
-        (data) => {
-          this.data.trendingPeople = data;
-          console.log(data);
-        },
-        (error) => {
-          alert('failed to load data! please try again later');
-        }
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((movie: any) => {
+            return {
+              ...movie,
+              profile_path: `${this.baseImgURL}${this.imgSize}${movie.profile_path}`,
+            };
+          });
+        })
       );
   }
   getTrendingMovies() {
-    this.http
-      .get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${this.key}`)
-      .pipe(map((data: any) => data.results))
-      .subscribe(
-        (data) => {
-          this.data.trendingPeople = data;
-          console.log(data);
-        },
-        (error) => {
-          alert('failed to load data! please try again later');
-        }
+    return this.http
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${
+          this.key
+        }&language=${this.isEnglish ? this.english : this.arabic}&page=1`
+      )
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((movie: any) => {
+            return {
+              ...movie,
+              poster_path: `${this.baseImgURL}${this.imgSize}${movie.poster_path}`,
+            };
+          });
+        })
       );
   }
   getTrendingTV() {
-    this.http
-      .get(`https://api.themoviedb.org/3/trending/tv/day?api_key=${this.key}`)
-      .pipe(map((data: any) => data.results))
-      .subscribe(
-        (data) => {
-          this.data.trendingPeople = data;
-          console.log(data);
-        },
-        (error) => {
-          alert('failed to load data! please try again later');
-        }
+    return this.http
+      .get(
+        `https://api.themoviedb.org/3/tv/popular?api_key=${this.key}&language=${
+          this.isEnglish ? this.english : this.arabic
+        }&page=1`
+      )
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((tv: any) => {
+            return {
+              ...tv,
+              poster_path: `${this.baseImgURL}${this.imgSize}${tv.poster_path}`,
+            };
+          });
+        })
       );
+  }
+  getSearch(query: string) {
+    return this.http
+      .get(
+        `https://api.themoviedb.org/3/search/multi?api_key=${
+          this.key
+        }&language=${
+          this.isEnglish ? this.english : this.arabic
+        }&page=1&include_adult=false&query=${this.modifyQuery(query)}`
+      )
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((tv: any) => {
+            return {
+              ...tv,
+              poster_path: `${this.baseImgURL}${this.imgSize}${tv.poster_path}`,
+            };
+          });
+        })
+      );
+  }
+  setLanguageArabic(): void {
+    this.isEnglish = false;
+  }
+  setLanguageEnglish(): void {
+    this.isEnglish = true;
   }
 }

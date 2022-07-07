@@ -7,7 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrendingTvComponent implements OnInit {
 
+<<<<<<< HEAD
   constructor() { }
+=======
+  trendingtv:Array<tv>=[]
+  
+  constructor( private _ApiRequestService:ApiRequestService
+  ) { }
+  ngOnInit(): void {
+    this._ApiRequestService.getTrendingTV().subscribe((res)=>{
+      this.trendingtv=res;
+    },(error:any)=>{
+      console.log("error")}
+
+    )
+    
+>>>>>>> Development
 
   ngOnInit(): void {
   }

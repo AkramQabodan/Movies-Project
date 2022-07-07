@@ -1,5 +1,12 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { movies } from 'app/interfaces/moviesinterface';
 
-export const increment = createAction('[Counter Component] Increment');
-export const decrement = createAction('[Counter Component] Decrement');
-export const reset = createAction('[Counter Component] Reset');
+export const addWish = createAction('Add a Wish', props<{ Wish: movies }>());
+export const removeWish = createAction(
+  'Remove a Wish',
+  props<{ index: number }>()
+);
+export const getWishes = createAction(
+  'Get all wishes',
+  props<{ list: Array<movies> }>()
+);
