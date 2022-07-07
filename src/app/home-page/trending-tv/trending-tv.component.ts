@@ -19,12 +19,16 @@ export class TrendingTvComponent implements OnInit {
       this.trendingtv=res;
     },(error:any)=>{
       console.log("error")}
+<<<<<<< HEAD
 
     )
     
 >>>>>>> Development
 
   ngOnInit(): void {
+=======
+    )  
+>>>>>>> Development
   }
 
 }
