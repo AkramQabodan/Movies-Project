@@ -7,13 +7,6 @@ import { map } from 'rxjs';
 })
 export class ApiRequestService {
   key: string = '6e17bd4768b3f5848c1d3b05fd8cadd9';
-<<<<<<< HEAD
-  data: { trendingPeople: {}[]; trendingMovies: {}[]; trendingTV: {}[] } = {
-    trendingPeople: [],
-    trendingMovies: [],
-    trendingTV: [],
-  };
-=======
   baseImgURL: string = 'https://image.tmdb.org/t/p';
   imgSize: string = '/original';
 
@@ -22,7 +15,6 @@ export class ApiRequestService {
   private arabic: string = 'ar';
   private english: string = 'en-US';
 
->>>>>>> Development
   constructor(private http: HttpClient) {}
 
   modifyQuery(string: string) {
