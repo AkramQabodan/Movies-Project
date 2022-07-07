@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { movies } from 'app/interfaces/moviesinterface';
-import { removeWish } from 'app/store/fav/fav.actions';
+import { removeWish, deleteWishes } from 'app/store/fav/fav.actions';
 
 @Component({
   selector: 'app-favourites',
@@ -31,7 +31,7 @@ export class FavouritesComponent implements OnInit {
       fav.className='text-muted'
     }
   }
-  Reset(){
-    this.favoriteList=[];
+  Reset(list:movies[]){
+    this._store.dispatch(deleteWishes({list}))
   }
 }
