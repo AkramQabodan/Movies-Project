@@ -11,7 +11,7 @@ export class ApiRequestService {
   imgSize: string = '/original';
 
   //url params for change languages
-  private isEnglish: boolean = true;
+  isEnglish: boolean = true;
   private arabic: string = 'ar';
   private english: string = 'en-US';
 
@@ -78,6 +78,7 @@ export class ApiRequestService {
         })
       );
   }
+
   getSearch(query: string) {
     return this.http
       .get(

@@ -1,40 +1,21 @@
 <div class="navbar_master">
   <div>
-    <h1 type="button" routerLink="/home">OurLogo</h1>
+    <h1>OurLogo</h1>
   </div>
   <ul>
     <li>
-      <a routerLink="/home/favourites" class="fav"
+      <a routerLink="favourites" class="fav"
         ><i class="fa-solid fa-star text-warning"></i
       ></a>
     </li>
     <li>
       <select name="lang">
-        <option value="ar">Ar</option>
-        <option value="en">En</option>
+        <option value="en" (click)="changeEn()" [selected]="English">En</option>
+        <option value="ar" (click)="changeAr()" [selected]="!English">
+          Ar
+        </option>
       </select>
     </li>
-
-    <li>
-      <a
-        class="btn btn-primary"
-        data-bs-toggle="offcanvas"
-        href="#CanvasSidebar"
-        role="button"
-        aria-controls="offcanvasExample"
-      >
-        Liked Movies
-      </a>
-    </li>
-    <!-- <li routerLinkActive="active">
-          <a routerLink="trendMovies">Movies</a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="trendTv">Tv</a>
-        </li>
-        <li routerLinkActive="active">
-            <a routerLink="trendPeople">People</a>
-          </li> -->
     <li class="signOut">
       <a (click)="LogOut()" type="button">Log Out</a>
     </li>
