@@ -7,6 +7,9 @@ export const initialState: Array<movies> = [];
 export const likeReducer = createReducer(
   initialState,
   on(addLike, (state, { Like }) => {
+    state = state.filter((movie) => {
+      return movie.id !== Like.id;
+    });
     state = [...state, Like];
     console.log(state);
     return state;

@@ -7,8 +7,10 @@ export const initialState: Array<movies> = [];
 export const favReducer = createReducer(
   initialState,
   on(addWish, (state, { Wish }) => {
+    state = state.filter((movie) => {
+      return movie.id !== Wish.id;
+    });
     state = [...state, Wish];
-    console.log(state);
     return state;
   }),
   on(removeWish, (state, { Id }) => {
@@ -16,7 +18,6 @@ export const favReducer = createReducer(
     state = state.filter((movie) => {
       return movie.id !== Id;
     });
-    console.log(state);
     return state;
   }),
   on(getWishes, (state) => state)
