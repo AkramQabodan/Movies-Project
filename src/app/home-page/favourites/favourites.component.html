@@ -4,9 +4,10 @@
 
   <app-fav-card *ngFor="let fav of favoriteList" [input]="fav"></app-fav-card>
   <button class="btn btn-danger mx-auto d-block col-5">
-    Delele All Favourites
+    Delete All Favourites
   </button>
 </div>
+
 <div *ngIf="favoriteList.length == 0" class="w-50 mx-auto mt-5">
   <figure>
     <img
@@ -20,15 +21,3 @@
   </button>
 </div>
 <app-likes-sidebar></app-likes-sidebar>
-
-<button class="btn btn-danger mx-auto d-block col-5">
-  Delele All Favourites
-</button>
-
-<div *ngIf="favoriteList.length == 0" class="w-50 mx-auto mt-5">
-  <img
-    src="../../../assets/images/noFav.jpg"
-    class="w-50 d-block mx-auto"
-    alt=""
-  />
-</div>

@@ -7,18 +7,20 @@ import { TrendingMoviesComponent } from './trending-movies/trending-movies.compo
 import { TrendingTvComponent } from './trending-tv/trending-tv.component';
 
 const routes: Routes = [
-  {path:'favourites',component:FavouritesComponent},
-  {path:'',component:HomeCompComponent,
-children:[
-  {path:'', redirectTo:'trendMovies', pathMatch:'full' },
-  {path:'trendMovies',component:TrendingMoviesComponent},
-  {path:'trendTv',component:TrendingTvComponent},
-  {path:'trendPeople',component:PopularPeopleComponent},
-  {path:'trendPeople/:searchterm',component:PopularPeopleComponent }
-]},
+  {
+    path: '',
+    component: HomeCompComponent,
+    children: [
+      { path: '', redirectTo: 'trendMovies', pathMatch: 'full' },
+      { path: 'trendMovies', component: TrendingMoviesComponent },
+      { path: 'trendTv', component: TrendingTvComponent },
+      { path: 'trendPeople', component: PopularPeopleComponent },
+    ],
+  },
+  { path: 'favourites', component: FavouritesComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomePageRoutingModule { }
+export class HomePageRoutingModule {}

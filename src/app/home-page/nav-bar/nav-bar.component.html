@@ -4,23 +4,37 @@
   </div>
   <ul>
     <li>
-      <a routerLink="favourites" class="fav"
+      <a routerLink="/home/favourites" class="fav"
         ><i class="fa-solid fa-star text-warning"></i
       ></a>
     </li>
     <li>
-      <select name="lang">
-        <option value="en" (click)="changeEn()" [selected]="English">En</option>
-        <option value="ar" (click)="changeAr()" [selected]="!English">
-          Ar
-        </option>
-      </select>
+      <div class="dropdown">
+        <a
+          class="btn btn-secondary dropdown-toggle"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Dropdown link
+        </a>
+
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li>
+            <a (click)="changeEn()" type="button" class="dropdown-item"
+              >English</a
+            >
+          </li>
+          <li>
+            <a (click)="changeAr()" type="button" class="dropdown-item"
+              >Arabic</a
+            >
+          </li>
+        </ul>
+      </div>
     </li>
-    <li class="signOut">
-      <a (click)="LogOut()" type="button">Log Out</a>
-    </li>
-  </ul>
-  <ul>
     <li>
       <a
         class="btn btn-primary"

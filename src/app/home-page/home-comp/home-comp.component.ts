@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ApiRequestService } from 'app/services/api-request.service';
 
@@ -7,7 +8,9 @@ import { ApiRequestService } from 'app/services/api-request.service';
   styleUrls: ['./home-comp.component.scss'],
 })
 export class HomeCompComponent implements OnInit {
-  constructor() {}
+  constructor(private _router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this._router.url);
+  }
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
@@ -12,10 +13,10 @@ export class ApiRequestService {
 
   //url params for change languages
   isEnglish: boolean = true;
-  private arabic: string = 'ar';
-  private english: string = 'en-US';
+  arabic: string = 'ar';
+  english: string = 'en-US';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private _router: Router) {}
 
   modifyQuery(string: string) {
     return string.trim().replace(' ', '-');
@@ -41,6 +42,12 @@ export class ApiRequestService {
       );
   }
   getTrendingMovies() {
+    console.log(
+      `https://api.themoviedb.org/3/movie/popular?api_key=${
+        this.key
+      }&language=${this.isEnglish ? this.english : this.arabic}&page=1`,
+      this.isEnglish
+    );
     return this.http
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=${
@@ -101,8 +108,18 @@ export class ApiRequestService {
   }
   setLanguageArabic(): void {
     this.isEnglish = false;
+    console.log(this.isEnglish);
   }
   setLanguageEnglish(): void {
     this.isEnglish = true;
+    console.log(this.isEnglish);
+  }
+  reNavigate() {
+    let currentUrl = this._router.url;
+    this._router
+      .navigateByUrl('home', { skipLocationChange: true })
+      .then(() => {
+        this._router.navigate([currentUrl]);
+      });
   }
 }
