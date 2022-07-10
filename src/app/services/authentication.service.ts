@@ -16,9 +16,6 @@ export class AuthenticationService {
     if (localStorage.getItem('Admin')) {
       localStorage.removeItem('Admin');
       this._router.navigate(['auth/signin']);
-      console.log('logging out');
-    }else{
-      console.log("already logged out")
     }
   }
 }

@@ -1,0 +1,29 @@
+<div>
+  <figure class="w-100">
+    <img class="w-100" [src]="input.poster_path" />
+  </figure>
+  <h5 class="card-title" style="height: 70px">{{ input.title }}</h5>
+  <div class="d-flex justify-content-between mb-2">
+    <span class="text-truncate text-muted"> {{ input.vote_average }} </span>
+    <i
+      class="fa-solid fa-star"
+      (click)="addToFav(input, input.id)"
+      [ngClass]="check ? 'text-warning' : 'text-muted'"
+    ></i>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary mb-2 mx-auto d-block"
+    [routerLink]="['/home/Multi-media/movie/details/', input.id]"
+  >
+    Movie Details
+  </button>
+</div>
+<div
+  *ngIf="_loader.Loading | async"
+  class="d-flex justify-content-center spin-loader"
+>
+  <div class="spinner-grow text-primary position-fixed top-50" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

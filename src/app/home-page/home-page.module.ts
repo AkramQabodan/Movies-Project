@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HomePageRoutingModule } from './home-page-routing.module';
-import { HomeCompComponent } from './home-comp/home-comp.component';
-import { HomeNavBarComponent } from './home-nav-bar/home-nav-bar.component';
-import { TrendingTvComponent } from './trending-tv/trending-tv.component';
-import { TrendingMoviesComponent } from './trending-movies/trending-movies.component';
-import { PopularPeopleComponent } from './popular-people/popular-people.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { FavouritesComponent } from './favourites/favourites.component';
-import { MediaCardComponent } from './media-card/media-card.component';
-import { PeopleCardComponent } from './people-card/people-card.component';
-import { TvMediaCardComponent } from './tv-media-card/tv-media-card.component';
-import { FavCardComponent } from './fav-card/fav-card.component';
-import { LikeBarComponent } from './like-bar/like-bar.component';
-import { LikesSidebarComponent } from './likes-sidebar/likes-sidebar.component';
+import { HomeCompComponent } from './Home-section/home-comp.component';
+import { HomeNavBarComponent } from './Navigation-section/home-nav-bar/home-nav-bar.component';
+import { TrendingTvComponent } from './TV-section/trending-tv/trending-tv.component';
+import { TrendingMoviesComponent } from './Movies-section/trending-movies/trending-movies.component';
+import { PopularPeopleComponent } from './People-section/popular-people/popular-people.component';
+import { SearchBarComponent } from './Search-section/search-bar/search-bar.component';
+import { NavBarComponent } from './Navigation-section/nav-bar/nav-bar.component';
+import { FavouritesComponent } from './Favorites-section/favourites/favourites.component';
+import { MediaCardComponent } from './Movies-section/movie-media-card/media-card.component';
+import { PeopleCardComponent } from './People-section/people-card/people-card.component';
+import { TvMediaCardComponent } from './TV-section/tv-media-card/tv-media-card.component';
+import { FavCardComponent } from './Favorites-section/fav-card/fav-card.component';
+import { LikeBarComponent } from './Likes-section/like-bar/like-bar.component';
+import { LikesSidebarComponent } from './Likes-section/likes-sidebar/likes-sidebar.component';
+import { ContentDetailsComponent } from './Details-section/content-details.component';
+import { SearchResultsComponent } from './Search-section/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { LikesSidebarComponent } from './likes-sidebar/likes-sidebar.component';
     FavCardComponent,
     LikeBarComponent,
     LikesSidebarComponent,
+    ContentDetailsComponent,
+    SearchResultsComponent,
   ],
   imports: [CommonModule, HomePageRoutingModule],
 })

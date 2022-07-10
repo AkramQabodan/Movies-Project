@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   constructor(private logForm: FormBuilder, private _router: Router) {}
-
   // form validation :
   userSignInForm = this.logForm.group({
     email: [
@@ -30,7 +29,6 @@ export class SignInComponent implements OnInit {
       ],
     ],
   });
-
   // Login process :
   signIn(data: any) {
     if (data.valid) {
@@ -46,6 +44,5 @@ export class SignInComponent implements OnInit {
       }
     }
   }
-
   ngOnInit(): void {}
 }

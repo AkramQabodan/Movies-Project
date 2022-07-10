@@ -6,11 +6,4 @@ export const removeWish = createAction(
   'Remove a Wish',
   props<{ Id: number }>()
 );
-export const getWishes = createAction(
-  'Get all wishes',
-  props<{ list: Array<movies> }>()
-);
-export const deleteWishes = createAction(
-  'Delete all wishes',
-  props<{ list: Array<movies> }>()
-);
+export const deleteWishes = createAction('Delete all wishes');

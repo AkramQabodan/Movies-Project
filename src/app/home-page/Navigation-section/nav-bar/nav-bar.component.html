@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark align-content-center">
+  <div class="container">
+    <a type="button" class="navbar-brand" routerLink="/home">Movies App</a>
+    <button
+      class="navbar-toggler text-dark"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul
+        class="navbar-nav ms-0 ms-lg-auto mb-2 mb-lg-0 justify-content-between w-50 align-items-sm-start align-items-lg-center"
+      >
+        <li class="nav-item my-1">
+          <a routerLink="/home" class="nav-link active" aria-current="page"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item my-1">
+          <a
+            routerLink="/home/favourites"
+            class="nav-link btn btn-warning text-white"
+            role="button"
+            >Favourites <i class="fa-solid fa-star text-white"></i
+          ></a>
+        </li>
+        <li class="nav-item my-1">
+          <a
+            class="nav-link btn btn-danger text-white"
+            data-bs-toggle="offcanvas"
+            href="#CanvasSidebar"
+            role="button"
+            aria-controls="offcanvasExample"
+          >
+            Likes <i class="fa-solid fa-heart"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown my-1">
+          <a
+            class="nav-link dropdown-toggle btn btn-secondary text-white"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Language
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a type="button" (click)="changeAr()" class="dropdown-item"
+                >Arabic</a
+              >
+            </li>
+            <li>
+              <a type="button" (click)="changeEn()" class="dropdown-item"
+                >English</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item my-1">
+          <a
+            class="nav-link btn btn-outline-secondary text-white"
+            (click)="LogOut()"
+            type="button"
+            >Log Out</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

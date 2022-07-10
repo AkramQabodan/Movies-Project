@@ -1,4 +1,4 @@
-import { addLike, removeLike, getLikes } from './../likes/likes.actions';
+import { addLike, removeLike } from './../likes/likes.actions';
 import { movies } from 'app/interfaces/moviesinterface';
 import { createReducer, on } from '@ngrx/store';
 
@@ -11,7 +11,6 @@ export const likeReducer = createReducer(
       return movie.id !== Like.id;
     });
     state = [...state, Like];
-    console.log(state);
     return state;
   }),
   on(removeLike, (state, { Id }) => {
@@ -19,8 +18,6 @@ export const likeReducer = createReducer(
     state = state.filter((movie) => {
       return movie.id !== Id;
     });
-    console.log(state);
     return state;
-  }),
-  on(getLikes, (state) => state)
+  })
 );

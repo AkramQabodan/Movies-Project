@@ -6,7 +6,3 @@ export const removeLike = createAction(
   'Remove a like',
   props<{ Id: number }>()
 );
-export const getLikes = createAction(
-  'Get all likes',
-  props<{ list: Array<movies> }>()
-);
