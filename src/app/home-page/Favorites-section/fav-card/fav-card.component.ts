@@ -25,11 +25,9 @@ export class FavCardComponent implements OnInit {
     if (this.liked == false) {
       this._store.dispatch(addLike({ Like: like }));
       this.liked = true;
-      console.log(this.liked);
     } else {
       this.liked = false;
       this._store.dispatch(removeLike({ Id: id }));
-      console.log(this.liked);
     }
   }
   ngOnInit(): void {}

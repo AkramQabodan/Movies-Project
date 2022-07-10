@@ -1,5 +1,10 @@
 <div class="row container mx-auto justify-content-between">
-  <app-tv-media-card  class="col-md-2 border m-2" *ngFor="let oneTv of trendingtv"  [input]="oneTv" > </app-tv-media-card>
+  <app-tv-media-card
+    class="col-md-2 border m-2"
+    *ngFor="let oneTv of trendingtv"
+    [input]="oneTv"
+  >
+  </app-tv-media-card>
 </div>
 <div
   *ngIf="_loader.Loading | async"
