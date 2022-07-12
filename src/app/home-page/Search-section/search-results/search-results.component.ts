@@ -10,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
   searchQurey: any;
-  searchResult: any;
+  searchResult: object = {};
+  searchRequest: any;
 
   constructor(
     private _apiRequest: ApiRequestService,
@@ -20,11 +21,17 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchQurey = this._activeRouter.snapshot.paramMap.get('query');
-    console.log(this.searchQurey);
 
-    this._apiRequest.getSearch(this.searchQurey).subscribe((result) => {
-      this.searchResult = result;
-      console.log(result);
-    });
+    this.searchRequest = this._apiRequest
+      .getSearch(this.searchQurey)
+      .subscribe((result) => {
+        this.searchResult = result;
+        console.log(result);
+      });
+  }
+  ngOnDestroy(): void {
+    this.searchRequest.unsubscribe();
+    this.searchQurey = '';
+    this.searchResult = [];
   }
 }

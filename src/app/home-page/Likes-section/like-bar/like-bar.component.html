@@ -1,4 +1,4 @@
-<li>
+<li type="button" [routerLink]="['/home/Multi-media/movie/details/', input.id]">
   <p>{{ input.title }}</p>
   <i
     (click)="removeFromList(input.id)"

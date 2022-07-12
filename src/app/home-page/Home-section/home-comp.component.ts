@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-comp.component.scss'],
 })
 export class HomeCompComponent implements OnInit {
-  constructor() {}
+  constructor(public _loader: LoaderService) {}
 
   ngOnInit(): void {}
 }

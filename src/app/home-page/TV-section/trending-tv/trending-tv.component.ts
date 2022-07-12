@@ -1,7 +1,7 @@
-import { LoaderService } from '../../../services/loader.service';
 import { Component, OnInit } from '@angular/core';
-import { tv } from 'app/interfaces/tvinterface';
+import { LoaderService } from '../../../services/loader.service';
 import { ApiRequestService } from 'app/services/api-request.service';
+import { tv } from 'app/interfaces/tvinterface';
 
 @Component({
   selector: 'app-trending-tv',
@@ -9,6 +9,7 @@ import { ApiRequestService } from 'app/services/api-request.service';
   styleUrls: ['./trending-tv.component.scss'],
 })
 export class TrendingTvComponent implements OnInit {
+  private tvRequest: any;
   trendingtv: Array<tv> = [];
 
   constructor(
@@ -16,8 +17,13 @@ export class TrendingTvComponent implements OnInit {
     public _loader: LoaderService
   ) {}
   ngOnInit(): void {
-    this._ApiRequestService.getTrendingTV().subscribe((res) => {
-      this.trendingtv = res;
-    });
+    this.tvRequest = this._ApiRequestService
+      .getTrendingTV()
+      .subscribe((res) => {
+        this.trendingtv = res;
+      });
+  }
+  ngOnDestroy(): void {
+    this.tvRequest.unsubscribe();
   }
 }

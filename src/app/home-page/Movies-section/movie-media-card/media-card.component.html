@@ -6,9 +6,10 @@
   <div class="d-flex justify-content-between mb-2">
     <span class="text-truncate text-muted"> {{ input.vote_average }} </span>
     <i
+      type="button"
       class="fa-solid fa-star"
       (click)="addToFav(input, input.id)"
-      [ngClass]="check ? 'text-warning' : 'text-muted'"
+      [ngClass]="check ? 'text-warning' : 'text-white'"
     ></i>
   </div>
   <button
@@ -18,4 +19,12 @@
   >
     Movie Details
   </button>
+  <div
+    *ngIf="(_loader.Loading | async) && !input.poster_path"
+    class="d-flex justify-content-center spin-loader"
+  >
+    <div class="spinner-grow text-primary position-fixed top-50" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
 </div>

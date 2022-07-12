@@ -15,7 +15,7 @@ export class AuthenticationService {
   logOut() {
     if (localStorage.getItem('Admin')) {
       localStorage.removeItem('Admin');
-      this._router.navigate(['auth/signin']);
+      this._router.navigate(['']);
     }
   }
 }

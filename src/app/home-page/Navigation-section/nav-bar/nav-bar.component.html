@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark align-content-center">
+<nav
+  class="navbar navbar-expand-lg bg-dark navbar-dark align-content-center fixed-top"
+>
   <div class="container">
     <a type="button" class="navbar-brand" routerLink="/home">Movies App</a>
     <button
@@ -21,29 +23,48 @@
             >Home</a
           >
         </li>
-
-        <li class="nav-item my-1">
+        <li class="nav-item dropdown my-1">
           <a
-            routerLink="/home/favourites"
-            class="nav-link btn btn-warning text-white"
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
             role="button"
-            >Favourites <i class="fa-solid fa-star text-white"></i
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Categories
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a routerLink="/home/trendMovies" class="dropdown-item">Movies</a>
+            </li>
+            <li>
+              <a routerLink="/home/trendTv" class="dropdown-item">TV Series</a>
+            </li>
+            <li>
+              <a routerLink="/home/trendPeople" class="dropdown-item">People</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item my-1">
+          <a routerLink="/home/favourites" class="nav-link" role="button"
+            >Favourites <i class="fa-solid fa-star text-warning"></i
           ></a>
         </li>
         <li class="nav-item my-1">
           <a
-            class="nav-link btn btn-danger text-white"
+            class="nav-link"
             data-bs-toggle="offcanvas"
             href="#CanvasSidebar"
             role="button"
             aria-controls="offcanvasExample"
           >
-            Likes <i class="fa-solid fa-heart"></i>
+            Likes <i class="fa-solid fa-heart text-danger"></i>
           </a>
         </li>
         <li class="nav-item dropdown my-1">
           <a
-            class="nav-link dropdown-toggle btn btn-secondary text-white"
+            class="nav-link dropdown-toggle"
             href="#"
             id="navbarDropdown"
             role="button"
@@ -65,9 +86,9 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item my-1">
+        <li class="nav-item my-1 ms-5">
           <a
-            class="nav-link btn btn-outline-secondary text-white"
+            class="nav-link btn btn-outline-light text-secondary"
             (click)="LogOut()"
             type="button"
             >Log Out</a

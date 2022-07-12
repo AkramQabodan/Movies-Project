@@ -1,3 +1,11 @@
 <app-nav-bar></app-nav-bar>
 <h1>content details</h1>
 <app-likes-sidebar></app-likes-sidebar>
+<div
+  *ngIf="_loader.Loading | async"
+  class="d-flex justify-content-center spin-loader"
+>
+  <div class="spinner-grow text-primary position-fixed top-50" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

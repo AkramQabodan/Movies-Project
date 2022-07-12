@@ -12,7 +12,7 @@ export class ApiRequestService {
   baseImgURL: string = 'https://image.tmdb.org/t/p';
   imgSize: string = '/original';
 
-  // Translation fragments >>
+  // Translation tools >>
   isEnglish: boolean = true;
   arabic: string = 'ar';
   english: string = 'en-US';
@@ -52,6 +52,7 @@ export class ApiRequestService {
           return {
             ...person,
             profile_path: `${this.baseImgURL}${this.imgSize}${person.profile_path}`,
+            backdrop_path: `${this.baseImgURL}${this.imgSize}${person.backdrop_path}`,
           };
         })
       );
@@ -77,6 +78,26 @@ export class ApiRequestService {
         })
       );
   }
+  getUpcomingMovies() {
+    return this.http
+      .get(
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${
+          this.key
+        }&language=${this.isEnglish ? this.english : this.arabic}&page=1`
+      )
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((movie: any) => {
+            return {
+              ...movie,
+              poster_path: `${this.baseImgURL}${this.imgSize}${movie.poster_path}`,
+              backdrop_path: `${this.baseImgURL}${this.imgSize}${movie.backdrop_path}`,
+            };
+          });
+        })
+      );
+  }
   getMovieDetails(id: number) {
     return this.http
       .get(
@@ -90,6 +111,7 @@ export class ApiRequestService {
           return {
             ...media,
             poster_path: `${this.baseImgURL}${this.imgSize}${media.poster_path}`,
+            backdrop_path: `${this.baseImgURL}${this.imgSize}${media.backdrop_path}`,
           };
         })
       );
@@ -115,6 +137,26 @@ export class ApiRequestService {
         })
       );
   }
+  getUpcomingTV() {
+    return this.http
+      .get(
+        `https://api.themoviedb.org/3/tv/airing_today?api_key=${
+          this.key
+        }&language=${this.isEnglish ? this.english : this.arabic}&page=1`
+      )
+      .pipe(
+        map((data: any) => data.results),
+        map((item) => {
+          return item.map((tv: any) => {
+            return {
+              ...tv,
+              poster_path: `${this.baseImgURL}${this.imgSize}${tv.poster_path}`,
+              backdrop_path: `${this.baseImgURL}${this.imgSize}${tv.backdrop_path}`,
+            };
+          });
+        })
+      );
+  }
   getTVDetails(id: number) {
     return this.http
       .get(
@@ -128,6 +170,7 @@ export class ApiRequestService {
           return {
             ...tv,
             poster_path: `${this.baseImgURL}${this.imgSize}${tv.poster_path}`,
+            backdrop_path: `${this.baseImgURL}${this.imgSize}${tv.backdrop_path}`,
           };
         })
       );

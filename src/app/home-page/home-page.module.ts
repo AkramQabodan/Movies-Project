@@ -1,9 +1,10 @@
+// Main modules >>
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { HomePageRoutingModule } from './home-page-routing.module';
 
+// Component directives >>
 import { HomeCompComponent } from './Home-section/home-comp.component';
 import { NavBarComponent } from './Navigation-section/nav-bar/nav-bar.component';
 import { HomeNavBarComponent } from './Navigation-section/home-nav-bar/home-nav-bar.component';
@@ -20,6 +21,7 @@ import { LikeBarComponent } from './Likes-section/like-bar/like-bar.component';
 import { LikesSidebarComponent } from './Likes-section/likes-sidebar/likes-sidebar.component';
 import { ContentDetailsComponent } from './Details-section/content-details.component';
 import { SearchResultsComponent } from './Search-section/search-results/search-results.component';
+import { MediaNewsComponent } from './News-section/media-news/media-news.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { SearchResultsComponent } from './Search-section/search-results/search-r
     LikesSidebarComponent,
     ContentDetailsComponent,
     SearchResultsComponent,
+    MediaNewsComponent,
   ],
   imports: [CommonModule, HomePageRoutingModule, FormsModule],
 })

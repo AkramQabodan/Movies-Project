@@ -27,5 +27,18 @@ export class MediaCardComponent implements OnInit {
       this._store.dispatch(removeWish({ Id: id }));
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._store.select('fav').subscribe((res) => {
+
+      const chosenItem = res.find((media) => {
+        console.log("input",this.input.id,"media",media.id)
+        return this.input.id == media.id;
+      });
+      console.log(chosenItem);
+      if (chosenItem) {
+        this.check == true;
+        console.log('hi');
+      }
+    });
+  }
 }
