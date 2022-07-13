@@ -10,25 +10,31 @@ import { removeWish } from 'app/store/fav/fav.actions';
   styleUrls: ['./fav-card.component.scss'],
 })
 export class FavCardComponent implements OnInit {
-  @Input() input: movies = {} as movies;
-
   liked: boolean = false;
+  @Input() input: movies = {} as movies;
 
   constructor(private _store: Store<{ fav: movies[]; like: movies[] }>) {}
 
-  // remove from Favorites List >>
   removeFav(Id: number) {
     this._store.dispatch(removeWish({ Id }));
   }
-  // Likes bar process >>
   like(like: movies, id: number) {
     if (this.liked == false) {
       this._store.dispatch(addLike({ Like: like }));
       this.liked = true;
     } else {
-      this.liked = false;
       this._store.dispatch(removeLike({ Id: id }));
+      this.liked = false;
     }
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._store.select('like').subscribe((res) => {
+      const likedItem = res.find((media: any) => {
+        return this.input.id == media.id;
+      });
+      if (likedItem) {
+        this.liked = true;
+      }
+    });
+  }
 }

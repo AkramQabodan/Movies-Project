@@ -23,11 +23,9 @@ export class MediaNewsComponent implements OnInit {
       .getUpcomingMovies()
       .subscribe((result) => {
         this.upcomingMovies = result;
-        console.log(result);
       });
     this.tvRequest = this._apiRequest.getUpcomingTV().subscribe((result) => {
       this.upcomingTV = result;
-      console.log(result);
     });
   }
 

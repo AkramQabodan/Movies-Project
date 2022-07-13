@@ -23,21 +23,17 @@ export class MediaCardComponent implements OnInit {
       this._store.dispatch(addWish({ Wish: wish }));
       this.check = true;
     } else {
-      this.check = false;
       this._store.dispatch(removeWish({ Id: id }));
+      this.check = false;
     }
   }
   ngOnInit(): void {
     this._store.select('fav').subscribe((res) => {
-
-      const chosenItem = res.find((media) => {
-        console.log("input",this.input.id,"media",media.id)
+      const chosenItem = res.find((media: any) => {
         return this.input.id == media.id;
       });
-      console.log(chosenItem);
       if (chosenItem) {
-        this.check == true;
-        console.log('hi');
+        this.check = true;
       }
     });
   }

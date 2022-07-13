@@ -13,7 +13,18 @@ import { removeLike } from 'app/store/likes/likes.actions';
 export class LikeBarComponent implements OnInit {
   @Input() input: movies = {} as movies;
 
-  constructor(private _store: Store<{ like: movies[] }>) {}
+  constructor(
+    private _store: Store<{ like: movies[] }>,
+    private _router: Router,
+    private _ApiService: ApiRequestService
+  ) {}
+
+  showDetails() {
+    this._router.navigate([`/home/Multi-media/movie/details/${this.input.id}`]);
+    setTimeout(() => {
+      this._ApiService.reNavigate();
+    }, 100);
+  }
 
   removeFromList(id: number) {
     this._store.dispatch(removeLike({ Id: id }));

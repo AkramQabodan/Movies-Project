@@ -9,7 +9,8 @@
     <span class="text-muted" #favour>
       <i
         type="button"
-        class="fa-solid fa-heart fs-5 ms-3 text-danger"
+        [ngClass]="liked ? 'text-danger' : 'text-white'"
+        class="fa-solid fa-heart fs-5 ms-3"
         (click)="like(input, input.id)"
       ></i>
     </span>
