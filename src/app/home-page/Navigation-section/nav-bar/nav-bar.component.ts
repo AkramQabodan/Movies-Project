@@ -19,12 +19,10 @@ export class NavBarComponent implements OnInit {
 
   changeAr() {
     this._service.setLanguageArabic();
-    console.log('changed to arabic');
     this._service.reNavigate();
   }
   changeEn() {
     this._service.setLanguageEnglish();
-    console.log('changed to english');
     this._service.reNavigate();
   }
   ngOnInit(): void {}

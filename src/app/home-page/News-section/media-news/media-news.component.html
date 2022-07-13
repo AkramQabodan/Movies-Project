@@ -5,7 +5,7 @@
       class="carousel slide carousel-fade w-md-75 mx-auto col-10"
       data-bs-ride="carousel"
     >
-      <div *ngIf="upcomingMovies" class="carousel-inner">
+      <div *ngIf="upcomingMovies" class="carousel-inner rounded-pill">
         <div
           *ngFor="let movie of upcomingMovies; first as firstSlide"
           [ngClass]="{ active: firstSlide }"
@@ -15,6 +15,7 @@
           <figure class="poster-img">
             <img
               [src]="movie.backdrop_path"
+              style="opacity: 0.5"
               class="d-block w-100 mx-auto"
               alt="background"
             />
@@ -67,7 +68,7 @@
       class="carousel slide carousel-fade mx-auto col-10"
       data-bs-ride="carousel"
     >
-      <div *ngIf="upcomingTV" class="carousel-inner">
+      <div *ngIf="upcomingTV" class="carousel-inner rounded-pill">
         <div
           *ngFor="let tv of upcomingTV; first as firstSlide"
           [class.active]="firstSlide"
@@ -77,6 +78,7 @@
           <figure class="poster-img">
             <img
               [src]="tv.backdrop_path"
+              style="opacity: 0.5"
               class="d-block w-100 mx-auto"
               alt="..."
             />

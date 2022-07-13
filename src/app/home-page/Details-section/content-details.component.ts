@@ -24,10 +24,12 @@ export class ContentDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.mediaID = this._activeMedia.snapshot.url[3].path;
-    this._activeMedia.url.subscribe((params) => {
-      this.mediaID = params[3].path;
-    });
+    this.mediaID = this._activeMedia.snapshot.url[3].path;
+
+    // this.mediaID = this._activeMedia.queryParamMap.subscribe((params) => {
+    //   console.log(params);
+    // });
+
     switch (this._activeMedia.snapshot.url[1].path) {
       case 'movie':
         this.movieRequest = this._apiRequest

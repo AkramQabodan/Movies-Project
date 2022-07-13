@@ -211,7 +211,7 @@ export class ApiRequestService {
   }
   reNavigate() {
     let currentUrl = this._router.url;
-    this._router.navigateByUrl('', { skipLocationChange: true }).then(() => {
+    this._router.navigateByUrl('details', { skipLocationChange: true }).then(() => {
       this._router.navigate([currentUrl]);
     });
   }
