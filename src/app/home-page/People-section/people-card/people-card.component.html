@@ -1,15 +1,16 @@
-<div class="people-card-container border mb-5">
-  <div class="people-card">
-    <figure class="divcardimage w-100">
-      <img class="cardimage w-100" [src]="input.profile_path" />
+<div class="people-card-container my-3 p-2">
+  <div>
+    <figure class="w-100">
+      <img class="w-100" [src]="input.profile_path" />
     </figure>
-    <p class="card-title text-truncate ms-1">{{ input.name }}</p>
-    <p class="cardtext text-truncate text-muted ms-1">
-      popularity :{{ input.popularity }}
+    <p class=" text-truncate ms-1 text-light fw-bold">{{ input.name }}</p>
+    <p class=" text-truncate text-light ms-1 fw-light">
+      popularity : {{ input.popularity }}
     </p>
+
     <button
       type="button"
-      class="btn btn-primary mb-2 mx-auto d-block"
+      class="btn btn-warning mb-2 mx-auto d-block w-100"
       [routerLink]="['/home/Multi-media/person/details/', input.id]"
     >
       Actor Details

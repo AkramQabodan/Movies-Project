@@ -1,22 +1,22 @@
-<div class="row justfy-content-between m-5 border align-items-center">
+<div class="fav-comp row justfy-content-between m-5 align-items-center p-2">
   <div class="col-2">
     <img [src]="input.poster_path" class="w-100" />
   </div>
   <div class="col-8 me-5 pe-5">
-    <h3 class="">{{ input.title }}</h3>
-    <p class="">{{ input.overview }}</p>
+    <h3 class="text-light">{{ input.title }}</h3>
+    <p class="text-light fw-light">{{ input.overview }}</p>
     <span>{{ input.vote_average }}</span>
-    <span class="text-muted" #favour>
+    <span class="text-muted me-5" #favour>
       <i
         type="button"
         [ngClass]="liked ? 'text-danger' : 'text-white'"
-        class="fa-solid fa-heart fs-5 ms-3"
+        class="fa-solid fa-heart fs-5 ms-3 mt-2"
         (click)="like(input, input.id)"
       ></i>
     </span>
     <button
       [routerLink]="['/home/Multi-media/movie/details/', input.id]"
-      class="btn btn-info"
+      class="btn btn-warning fav-button text-dark col-6"
     >
       Movie Details
     </button>
