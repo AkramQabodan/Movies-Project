@@ -1,14 +1,15 @@
-<div>
+<div class="p-2 mx-2 my-3 tv-div mt-3">
   <figure class="w-100">
     <img class="w-100" [src]="input.poster_path" />
   </figure>
-  <h5 class="card-title text-truncate" style="height: 30px">
+  <h5 class="card-title text-truncate text-light">
     {{ input.name }}
   </h5>
   <p class="text-muted">{{ input.vote_average }}</p>
   <button
     type="button"
-    class="btn btn-primary mb-2 mx-auto d-block"
+    class="btn  mb-2 mx-auto d-block w-100 text-light"
+    style="background-color: #f18e0c;"
     [routerLink]="['/home/Multi-media/tv/details/', input.id]"
   >
     TV Details
