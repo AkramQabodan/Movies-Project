@@ -1,8 +1,8 @@
-<div>
+<div class="p-2 movie-div mx-1 my-3">
   <figure class="w-100">
     <img class="w-100" [src]="input.poster_path" />
   </figure>
-  <h5 class="card-title" style="height: 70px">{{ input.title }}</h5>
+  <h5 class="card-title text-light text-truncate mb-2">{{ input.title }}</h5>
   <div class="d-flex justify-content-between mb-2">
     <span class="text-truncate text-muted"> {{ input.vote_average }} </span>
     <i
@@ -14,7 +14,7 @@
   </div>
   <button
     type="button"
-    class="btn btn-primary mb-2 mx-auto d-block"
+    class="btn mb-2 mx-auto d-block w-100" style="background-color:orange ;"
     [routerLink]="['/home/Multi-media/movie/details/', input.id]"
   >
     Movie Details

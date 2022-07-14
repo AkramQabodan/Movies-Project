@@ -193,8 +193,12 @@ export class ApiRequestService {
             return {
               ...search,
               poster_path: `${this.baseImgURL}${this.imgSize}${search.poster_path}`,
+              backdrop_path: `${this.baseImgURL}${this.imgSize}${search.backdrop_path}`,
             };
           });
+        }),
+        map((list) => {
+          return list.filter((item: any) => item.media_type !== 'person');
         })
       );
   }
@@ -211,9 +215,11 @@ export class ApiRequestService {
   }
   reNavigate() {
     let currentUrl = this._router.url;
-    this._router.navigateByUrl('details', { skipLocationChange: true }).then(() => {
-      this._router.navigate([currentUrl]);
-    });
+    this._router
+      .navigateByUrl('details', { skipLocationChange: true })
+      .then(() => {
+        this._router.navigate([currentUrl]);
+      });
   }
 }
 
