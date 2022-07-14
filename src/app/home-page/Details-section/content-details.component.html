@@ -1,9 +1,31 @@
 <app-nav-bar></app-nav-bar>
 <h1>content details</h1>
 <app-likes-sidebar></app-likes-sidebar>
+
+<div
+  class="detailsCard container card-body mt-5 row border"
+  *ngIf="mediaDetails"
+>
+  <div class="col-5">
+    <figure>
+      <img class="w-100 border" [src]="mediaDetails.poster_path" />
+    </figure>
+  </div>
+  <div class="col mt-5">
+    <h5 class="card-title text-light">{{ mediaDetails.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      {{ mediaDetails.vote_average }}
+    </h6>
+    <p class="card-text text-light">{{ mediaDetails.overview }}</p>
+    <p class="card-text text-muted">vote {{ mediaDetails.vote_count }}</p>
+    <button class="btn btn-warning w-50">Watch Movie</button>
+  </div>
+</div>
+
 <div
   *ngIf="_loader.Loading | async"
   class="d-flex justify-content-center spin-loader"
+  git
 >
   <div class="spinner-grow text-primary position-fixed top-50" role="status">
     <span class="visually-hidden">Loading...</span>

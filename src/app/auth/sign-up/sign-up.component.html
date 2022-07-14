@@ -1,10 +1,10 @@
-<div class="container">
+<div class="cover_master p-5">
   <form
     [formGroup]="RegisterForm"
     (ngSubmit)="submitForm()"
-    class="col-8 mx-auto p-5 rounded-1 bg-light mt-5 w-50"
+    class="formstyle mx-auto p-5 w-50"
   >
-    <div class="mb-5">
+    <div class="mb-4">
       <label for="email-address" class="form-label">Name</label>
       <input
         formControlName="name"
@@ -28,7 +28,7 @@
         </p>
       </div>
     </div>
-    <div class="mb-5">
+    <div class="mb-4">
       <label for="name" class="form-label">Email address</label>
       <input
         formControlName="email"
@@ -58,7 +58,7 @@
         </p>
       </div>
     </div>
-    <div class="mb-5">
+    <div class="mb-4">
       <label for="user-name" class="form-label">User Name</label>
       <input
         formControlName="userName"
@@ -88,7 +88,7 @@
         </p>
       </div>
     </div>
-    <div class="mb-5">
+    <div class="mb-4">
       <label for="password" class="form-label">Password</label>
       <input
         formControlName="password"
@@ -119,7 +119,7 @@
         </p>
       </div>
     </div>
-    <div class="mb-5">
+    <div class="mb-4">
       <label for="confirm-password" class="form-label">Confirm Password</label>
       <input
         formControlName="confirmPass"
@@ -155,13 +155,13 @@
     <button
       [disabled]="!RegisterForm.valid"
       type="submit"
-      class="btn btn-success border-1 border-light"
+      class="btn btn-warning border-1 border-light d-block w-25 mx-auto mt-5"
     >
       Sign Up
     </button>
   </form>
   <div class="mx-auto container col-4 text-center py-4">
-    <p>
+    <p class="text-light">
       Already have an account?
       <a class="text-decoration-none" routerLink="/auth/signin">Sign In</a>
     </p>
