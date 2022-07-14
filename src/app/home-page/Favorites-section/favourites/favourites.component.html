@@ -1,8 +1,13 @@
 <app-nav-bar></app-nav-bar>
 <div class="col-9 mx-auto" *ngIf="favoriteList.length > 0">
   <h1 class="text-center mt-3">Favourite Movie List</h1>
-
-  <app-fav-card *ngFor="let fav of favoriteList" [input]="fav"></app-fav-card>
+  <div class="container row">
+    <app-fav-card
+      class="col-6 favCard"
+      *ngFor="let fav of favoriteList"
+      [input]="fav"
+    ></app-fav-card>
+  </div>
   <button (click)="clearList()" class="btn btn-danger mx-auto d-block col-5">
     Delete All Favourites
   </button>

@@ -1,5 +1,5 @@
 import { LoaderService } from './../../../services/loader.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiRequestService } from 'app/services/api-request.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,15 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
   searchQurey: any;
-  searchResult: object = {};
+  searchResult: Array<any> = [];
   searchRequest: any;
 
   constructor(
     private _apiRequest: ApiRequestService,
     private _activeRouter: ActivatedRoute,
-    public _loader: LoaderService
+    public _loader: LoaderService,
+    private _router: Router
   ) {}
 
+  mediaDetails(type: string, id: number) {
+    this._router.navigate([`/home/Multi-media/${type}/details/${id}`]);
+  }
   ngOnInit(): void {
     this.searchQurey = this._activeRouter.snapshot.paramMap.get('query');
 
@@ -27,6 +31,7 @@ export class SearchResultsComponent implements OnInit {
       .subscribe((result) => {
         this.searchResult = result;
         console.log(result);
+        console.log(this.searchResult);
       });
   }
   ngOnDestroy(): void {
