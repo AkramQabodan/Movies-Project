@@ -36,7 +36,7 @@ export class ContentDetailsComponent implements OnInit {
           .getMovieDetails(this.mediaID)
           .subscribe((result) => {
             this.mediaDetails = result;
-            console.log(result);
+            console.log(this.mediaDetails);
           });
         break;
       case 'tv':
