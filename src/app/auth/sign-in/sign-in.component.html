@@ -1,9 +1,9 @@
-<div class="container">
+<div class="cover_master p-5">
   <form
     [formGroup]="userSignInForm"
     (ngSubmit)="signIn(login)"
     #login="ngForm"
-    class="col-8 mx-auto p-5 rounded-1 bg-light mt-5 w-50"
+    class="formstyle mx-auto p-5 mb-5 w-50"
   >
     <div class="mb-5">
       <label for="name" class="form-label">Email address</label>
@@ -68,13 +68,13 @@
       onclick=""
       [disabled]="!userSignInForm.valid"
       type="submit"
-      class="btn btn-success border-1 border-light"
+      class="btn btn-warning border-1 border-light d-block w-25 mx-auto mt-5"
     >
       Sign In
     </button>
   </form>
   <div class="mx-auto container col-4 text-center py-4">
-    <p>
+    <p class="text-light">
       Don't have account?
       <a class="text-decoration-none" routerLink="/auth/signup">Sign Up</a>
     </p>
