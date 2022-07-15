@@ -1,11 +1,11 @@
 <app-nav-bar></app-nav-bar>
 <app-likes-sidebar></app-likes-sidebar>
 
-<div class="detailsCard row text-light p-4" *ngIf="mediaDetails">
+<div class="detailsCard row text-warning p-4 fs-5" *ngIf="mediaDetails">
   <div class="col-4">
     <figure>
       <img
-        class="w-100"
+        class="w-100 poster"
         [src]="
           mediaDetails.poster_path
             ? mediaDetails.poster_path
@@ -15,7 +15,7 @@
     </figure>
   </div>
   <div class="col-8 mt-5">
-    <h3 class="card-title">
+    <h3 class="card-title text-light">
       {{ mediaDetails.title ? mediaDetails.title : mediaDetails.name }}
     </h3>
     <div class="dates py-2">
@@ -33,20 +33,20 @@
         }}
       </div>
     </div>
-    <h6 class="card-subtitle mb-2">
-      {{ mediaDetails.vote_average }}
-    </h6>
     <p class="card-text text-light lh-2">
       {{
         mediaDetails.overview ? mediaDetails.overview : mediaDetails.biography
       }}
     </p>
-    <button *ngIf="mediaDetails.poster_path" class="btn btn-warning w-25">
+    <h6 *ngIf="mediaDetails.poster_path" class="card-subtitle mb-2">
+      Rate :
+      {{ mediaDetails.vote_average }}
+    </h6>
+    <button *ngIf="mediaDetails.poster_path" class="btn btn-outline-warning w-25 mt-3">
       Watch this
     </button>
   </div>
 </div>
-
 <div
   *ngIf="_loader.Loading | async"
   class="d-flex justify-content-center spin-loader"

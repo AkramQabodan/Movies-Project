@@ -4,7 +4,6 @@
   margin: 80px auto;
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.088);
-  align-items: center;
 }
 .detailsCard figure {
   width: 70%;
@@ -12,7 +11,6 @@
 .detailsCard figure img {
   border-radius: 50px;
 }
-button {
-  display: block;
-  margin: auto;
+.poster {
+  box-shadow: 5px 5px 5px black;
 }

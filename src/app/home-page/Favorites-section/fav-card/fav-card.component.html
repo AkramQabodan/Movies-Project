@@ -19,7 +19,7 @@
       <figure class="col-4">
         <img [src]="input.poster_path" class="w-100" />
       </figure>
-      <p class="text-light fw-light col-8 fw-bold">
+      <p class="text-light fw-light col-8 fs-5">
         {{ input.overview.slice(0, 100) + "..." }}
       </p>
     </div>
@@ -28,10 +28,10 @@
         [routerLink]="['/home/Multi-media/movie/details/', input.id]"
         class="btn btn-warning fav-button text-dark mb-2 d-block mx-auto"
       >
-        Movie Details
+        View details
       </button>
       <button
-        class="btn btn-danger p-2 mt-4 d-block w-25 d-block mx-auto"
+        class="btn btn-danger p-1 mt-4 d-block w-25 d-block mx-auto"
         (click)="removeFav(input.id)"
       >
         Remove
