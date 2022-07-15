@@ -1,9 +1,10 @@
 .favContainer {
-  display: flex;
-  flex-wrap: wrap;
   .favCard {
-    max-height: 50vh;
     width: 50%;
     max-height: 30vh;
   }
+}
+.backGround {
+  background: rgba(0, 0, 128, 0.152);
+  margin-top: 70px;
 }

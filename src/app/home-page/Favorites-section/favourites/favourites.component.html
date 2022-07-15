@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
-<div class="col-9 mx-auto" *ngIf="favoriteList.length > 0">
-  <h1 class="text-center mt-3">Favourite Movie List</h1>
+<div class="col-9 mx-auto backGround" *ngIf="favoriteList.length > 0">
+  <h1 class="text-center mt-3 text-warning">Favourite Movie List</h1>
   <div class="container row">
     <app-fav-card
       class="col-6 favCard"
@@ -8,20 +8,22 @@
       [input]="fav"
     ></app-fav-card>
   </div>
-  <button (click)="clearList()" class="btn btn-danger mx-auto d-block col-5">
+  <button
+    (click)="clearList()"
+    class="btn btn-danger mx-auto d-block col-5 w-25"
+  >
     Delete All Favourites
   </button>
 </div>
-<div *ngIf="favoriteList.length == 0" class="w-50 mx-auto pt-5">
-  <figure>
+<div *ngIf="favoriteList.length == 0" class="w-75 mx-auto pt-5">
+  <figure class="p-5">
     <img
-      src="../../../assets/images/noFav.jpg"
+      src="../../../../assets/images/undraw_not_found_viyq.svg"
       class="w-50 d-block mx-auto mt-5"
-      
       alt=""
     />
   </figure>
-  <button routerLink="/home" class="btn btn-warning mx-auto d-block w-50">
+  <button routerLink="/home" class="btn btn-warning mx-auto d-block w-25">
     Back to home
   </button>
 </div>

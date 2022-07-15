@@ -7,7 +7,6 @@ import { HomePageRoutingModule } from './home-page-routing.module';
 // Component directives >>
 import { HomeCompComponent } from './Home-section/home-comp.component';
 import { NavBarComponent } from './Navigation-section/nav-bar/nav-bar.component';
-import { HomeNavBarComponent } from './Navigation-section/home-nav-bar/home-nav-bar.component';
 import { TrendingTvComponent } from './TV-section/trending-tv/trending-tv.component';
 import { TrendingMoviesComponent } from './Movies-section/trending-movies/trending-movies.component';
 import { PopularPeopleComponent } from './People-section/popular-people/popular-people.component';
@@ -26,7 +25,6 @@ import { MediaNewsComponent } from './News-section/media-news/media-news.compone
 @NgModule({
   declarations: [
     HomeCompComponent,
-    HomeNavBarComponent,
     TrendingTvComponent,
     TrendingMoviesComponent,
     PopularPeopleComponent,

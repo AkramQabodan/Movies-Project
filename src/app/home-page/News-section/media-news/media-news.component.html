@@ -47,17 +47,6 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <div
-      *ngIf="_loader.Loading | async"
-      class="d-flex justify-content-center spin-loader"
-    >
-      <div
-        class="spinner-grow text-primary position-fixed top-50"
-        role="status"
-      >
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
   </div>
 
   <hr />
@@ -111,12 +100,12 @@
       </button>
     </div>
   </div>
-  <div
-    *ngIf="_loader.Loading | async"
-    class="d-flex justify-content-center spin-loader"
-  >
-    <div class="spinner-grow text-primary position-fixed top-50" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
+</div>
+<div
+  *ngIf="_loader.Loading | async"
+  class="d-flex justify-content-center spin-loader"
+>
+  <div class="spinner-grow text-primary position-fixed top-50" role="status">
+    <span class="visually-hidden">Loading...</span>
   </div>
 </div>

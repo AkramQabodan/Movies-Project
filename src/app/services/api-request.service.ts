@@ -73,6 +73,7 @@ export class ApiRequestService {
             return {
               ...movie,
               poster_path: `${this.baseImgURL}${this.imgSize}${movie.poster_path}`,
+              backdrop_path: `${this.baseImgURL}${this.imgSize}${movie.backdrop_path}`,
             };
           });
         })

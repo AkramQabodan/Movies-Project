@@ -7,5 +7,7 @@ export interface movies {
   overview: string;
   profile_path: string;
   poster_path: string;
+  backdrop_path: string;
   vote_average: number;
+  release_date: string;
 }

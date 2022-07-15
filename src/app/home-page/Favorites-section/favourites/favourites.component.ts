@@ -19,6 +19,7 @@ export class FavouritesComponent implements OnInit {
   ngOnInit(): void {
     this._store.select('fav').subscribe((res) => {
       this.favoriteList = res;
+      console.log(this.favoriteList);
     });
   }
 }

@@ -1,24 +1,49 @@
 <app-nav-bar></app-nav-bar>
-<h1>content details</h1>
 <app-likes-sidebar></app-likes-sidebar>
 
-<div
-  class="detailsCard container card-body mt-5 row border"
-  *ngIf="mediaDetails"
->
-  <div class="col-5">
+<div class="detailsCard row text-light p-4" *ngIf="mediaDetails">
+  <div class="col-4">
     <figure>
-      <img class="w-100 border" [src]="mediaDetails.poster_path" />
+      <img
+        class="w-100"
+        [src]="
+          mediaDetails.poster_path
+            ? mediaDetails.poster_path
+            : mediaDetails.profile_path
+        "
+      />
     </figure>
   </div>
-  <div class="col mt-5">
-    <h5 class="card-title text-light">{{ mediaDetails.title }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">
+  <div class="col-8 mt-5">
+    <h3 class="card-title">
+      {{ mediaDetails.title ? mediaDetails.title : mediaDetails.name }}
+    </h3>
+    <div class="dates py-2">
+      <div>
+        <span class="pe-2">{{
+          mediaDetails.poster_path ? "Release date :" : "Birth Day :"
+        }}</span>
+        <span *ngIf="mediaDetails.birthday">
+          {{ mediaDetails.birthday | date: "mediumDate" }}
+        </span>
+        {{
+          mediaDetails.release_date
+            ? mediaDetails.release_date
+            : mediaDetails.first_air_date
+        }}
+      </div>
+    </div>
+    <h6 class="card-subtitle mb-2">
       {{ mediaDetails.vote_average }}
     </h6>
-    <p class="card-text text-light">{{ mediaDetails.overview }}</p>
-    <p class="card-text text-muted">vote {{ mediaDetails.vote_count }}</p>
-    <button class="btn btn-warning w-50">Watch Movie</button>
+    <p class="card-text text-light lh-2">
+      {{
+        mediaDetails.overview ? mediaDetails.overview : mediaDetails.biography
+      }}
+    </p>
+    <button *ngIf="mediaDetails.poster_path" class="btn btn-warning w-25">
+      Watch this
+    </button>
   </div>
 </div>
 

@@ -1,31 +1,41 @@
-<div class="fav-comp row justfy-content-between m-5 align-items-center p-2">
-  <div class="col-2">
-    <img [src]="input.poster_path" class="w-100" />
+<div
+  [ngStyle]="{ 'background-image': 'url(' + input.backdrop_path + ')' }"
+  class="fav-comp row justfy-content-between m-5 align-items-center"
+>
+  <div class="contents">
+    <div class="row">
+      <h5 class="text-light py-4 col-8">{{ input.title }}</h5>
+      <span class="text-muted col-4 mt-4" #favour>
+        <i
+          type="button"
+          [ngClass]="liked ? 'text-danger' : 'text-white'"
+          class="fa-solid fa-heart fs-5 ms-3 mt-2"
+          (click)="like(input, input.id)"
+        ></i>
+      </span>
+    </div>
+
+    <div class="row align-items-center justfy-content-between px-0">
+      <figure class="col-4">
+        <img [src]="input.poster_path" class="w-100" />
+      </figure>
+      <p class="text-light fw-light col-8 fw-bold">
+        {{ input.overview.slice(0, 100) + "..." }}
+      </p>
+    </div>
+    <div class="mx-auto">
+      <button
+        [routerLink]="['/home/Multi-media/movie/details/', input.id]"
+        class="btn btn-warning fav-button text-dark mb-2 d-block mx-auto"
+      >
+        Movie Details
+      </button>
+      <button
+        class="btn btn-danger p-2 mt-4 d-block w-25 d-block mx-auto"
+        (click)="removeFav(input.id)"
+      >
+        Remove
+      </button>
+    </div>
   </div>
-  <div class="col-8 me-5 pe-5">
-    <h3 class="text-light">{{ input.title }}</h3>
-    <p class="text-light fw-light">{{ input.overview }}</p>
-    <span>{{ input.vote_average }}</span>
-    <span class="text-muted me-5" #favour>
-      <i
-        type="button"
-        [ngClass]="liked ? 'text-danger' : 'text-white'"
-        class="fa-solid fa-heart fs-5 ms-3 mt-2"
-        (click)="like(input, input.id)"
-      ></i>
-    </span>
-    <button
-      [routerLink]="['/home/Multi-media/movie/details/', input.id]"
-      class="btn btn-warning fav-button text-dark col-6"
-    >
-      Movie Details
-    </button>
-  </div>
-  <button
-    class="btn btn-sm btn-danger col-1 my-auto d-block ms-5"
-    style="height: 40px; width: 40px"
-    (click)="removeFav(input.id)"
-  >
-    <i class="fa-solid fa-xmark fs-5"></i>
-  </button>
 </div>
